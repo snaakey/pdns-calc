@@ -86,8 +86,6 @@ function eval(expr)
     end
 end
 
-return eval(parseExpr(splitTokens(expr:toStringNoDot())))
-
 function printTree(expr, depth)
     local indent = string.rep('  ', depth)
     print(indent .. 'type: ' .. expr['type'])
@@ -104,8 +102,8 @@ function printTree(expr, depth)
     end
 end
 
-program = '1.a.2.m.3.s.4'
-tree = parseExpr(splitTokens(program))
+tree = parseExpr(splitTokens(arg[1]))
+print('tree:')
 printTree(tree, 0)
-print('result: ', eval(tree))
+print('result: ' .. eval(tree))
 
